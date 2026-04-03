@@ -18,8 +18,6 @@ public class CrudHospital extends AbstractCrud<Hospital> {
         this.listaHospital = new ArrayList<Hospital>();
     }
 
-
-
     @Override
     protected Hospital createInstance() {
 
@@ -59,7 +57,7 @@ public class CrudHospital extends AbstractCrud<Hospital> {
                 null,
                 dateChooser,
                 "Seleccione la fecha de fundación",
-                JOptionPane.OK_CANCEL_OPTION);
+                JOptionPane.OK_CANCEL_OPTION); 
 
         Date foundationDate = null;
         if (option == JOptionPane.OK_OPTION) {

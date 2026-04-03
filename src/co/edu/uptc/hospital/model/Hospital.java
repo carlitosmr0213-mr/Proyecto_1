@@ -28,26 +28,55 @@ public class Hospital extends BaseClass {
         this.gerenteName   = gerenteName;
     }
 
+	public String getName() {
+		return name;
+	}
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getNit() { return nit; }
-    public void setNit(String nit) { this.nit = nit; }
+	public String getNit() {
+		return nit;
+	}
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+	public String getAddress() {
+		return address;
+	}
 
-    public Date getFoundationDate() { return foundationDate; }
-    public void setFoundationDate(Date foundationDate) { this.foundationDate = foundationDate; }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getGerenteName() { return gerenteName; }
-    public void setGerenteName(String gerenteName) { this.gerenteName = gerenteName; }
+	public String getPhone() {
+		return phone;
+	}
 
-    @Override
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Date getFoundationDate() {
+		return foundationDate;
+	}
+
+	public void setFoundationDate(Date foundationDate) {
+		this.foundationDate = foundationDate;
+	}
+
+	public String getGerenteName() {
+		return gerenteName;
+	}
+
+	public void setGerenteName(String gerenteName) {
+		this.gerenteName = gerenteName;
+	}
+
+	@Override
     public String toString() {
         return "Hospital {"
                 + "\n  ID            : " + id

@@ -3,7 +3,6 @@ package co.edu.uptc.hospital.model;
 public class Gerent extends BaseClass {
 
     private static int autoId = 0;
-
     private String firstName;
     private String lastName;
     private String idNum;
@@ -19,16 +18,39 @@ public class Gerent extends BaseClass {
         this.idNum     = idNum;
     }
 
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public static int getAutoId() {
+		return autoId;
+	}
 
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+	public static void setAutoId(int autoId) {
+		Gerent.autoId = autoId;
+	}
 
-    public String getIdNum() { return idNum; }
-    public void setIdNum(String idNum) { this.idNum = idNum; }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    @Override
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getIdNum() {
+		return idNum;
+	}
+
+	public void setIdNum(String idNum) {
+		this.idNum = idNum;
+	}
+
+	@Override
     public String toString() {
         return "Gerent {"
                 + "\n  ID       : " + id
