@@ -1,65 +1,27 @@
 package co.edu.uptc.hospital.model;
- 
-public class Nurse extends BaseClass {
- 
-    private static int autoId = 0;
- 
-    private String firstName;
-    private String lastName;
-    private String idNumber;
+
+public class Nurse extends Person {
+
+    /* Sin autoId propio — BaseClass lo maneja */
     private String specialty;
     private String shift;
     private String phoneNumber;
- 
+
     public Nurse() {
         super();
     }
- 
+
     public Nurse(String firstName, String lastName, String idNumber,
-                     String specialty, String shift, String phoneNumber) {
-        super(++autoId);
-        this.firstName   = firstName;
-        this.lastName    = lastName;
-        this.idNumber    = idNumber;
+                 String email, String birthDate,
+                 String specialty, String shift, String phoneNumber) {
+        super(firstName, lastName, idNumber, email, birthDate);
         this.specialty   = specialty;
         this.shift       = shift;
         this.phoneNumber = phoneNumber;
     }
- 
- 
-    public static int getAutoId() {
-		return autoId;
-	}
+    
 
-	public static void setAutoId(int autoId) {
-		Nurse.autoId = autoId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getIdNumber() {
-		return idNumber;
-	}
-
-	public void setIdNumber(String idNumber) {
-		this.idNumber = idNumber;
-	}
-
-	public String getSpecialty() {
+    public String getSpecialty() {
 		return specialty;
 	}
 
@@ -85,11 +47,13 @@ public class Nurse extends BaseClass {
 
 	@Override
     public String toString() {
-        return "Enfermero {"
-                + "\n  ID           : " + id
+        return "Nurse {"
+                + "\n  ID (sistema) : " + id
                 + "\n  First Name   : " + firstName
                 + "\n  Last Name    : " + lastName
-                + "\n  ID Number    : " + idNumber
+                + "\n  Cedula       : " + idNumber
+                + "\n  Email        : " + email
+                + "\n  Birth Date   : " + birthDate
                 + "\n  Specialty    : " + specialty
                 + "\n  Shift        : " + shift
                 + "\n  Phone Number : " + phoneNumber

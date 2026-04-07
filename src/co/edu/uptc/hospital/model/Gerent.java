@@ -1,61 +1,61 @@
 package co.edu.uptc.hospital.model;
-
-public class Gerent extends BaseClass {
-
-    private static int autoId = 0;
-    private String firstName;
-    private String lastName;
-    private String idNum;
-
+ 
+public class Gerent extends Person {
+ 
+    private String department;
+    private double salary;
+    private String phoneNumber;
+ 
     public Gerent() {
         super();
     }
-
-    public Gerent(String firstName, String lastName, String idNum) {
-        super(++autoId);
-        this.firstName = firstName;
-        this.lastName  = lastName;
-        this.idNum     = idNum;
+ 
+    public Gerent(String firstName, String lastName, String idNumber,
+                  String email, String birthDate,
+                  String department, double salary, String phoneNumber) {
+        super(firstName, lastName, idNumber, email, birthDate);
+        this.department  = department;
+        this.salary      = salary;
+        this.phoneNumber = phoneNumber;
     }
 
-    public static int getAutoId() {
-		return autoId;
+ 
+    public String getDepartment() {
+		return department;
 	}
 
-	public static void setAutoId(int autoId) {
-		Gerent.autoId = autoId;
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public double getSalary() {
+		return salary;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getIdNum() {
-		return idNum;
-	}
-
-	public void setIdNum(String idNum) {
-		this.idNum = idNum;
-	}
-
-	@Override
+    @Override
     public String toString() {
         return "Gerent {"
-                + "\n  ID       : " + id
-                + "\n  Nombre   : " + firstName + " " + lastName
-                + "\n  Cédula   : " + idNum
+                + "\n  ID (sistema) : " + id
+                + "\n  First Name   : " + firstName
+                + "\n  Last Name    : " + lastName
+                + "\n  Cedula       : " + idNumber
+                + "\n  Email        : " + email
+                + "\n  Birth Date   : " + birthDate
+                + "\n  Department   : " + department
+                + "\n  Salary       : " + salary
+                + "\n  Phone        : " + phoneNumber
                 + "\n}";
     }
 }

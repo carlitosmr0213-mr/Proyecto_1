@@ -1,15 +1,28 @@
 package co.edu.uptc.hospital.model;
 
 public class BaseClass {
-	protected int id;
 
-	public BaseClass() {
-		super();
+    private static int autoId = 0;
+    protected int id;
+
+    public BaseClass() {
+        super();
+    }
+
+    /* Las subclases llaman a este constructor para obtener
+       su id único automáticamente */
+    public BaseClass(boolean autoAssign) {
+        if (autoAssign) {
+            this.id = ++autoId;
+        }
+    }
+
+	public static int getAutoId() {
+		return autoId;
 	}
 
-	public BaseClass(int id) {
-		super();
-		this.id = id;
+	public static void resetAutoId() {
+		autoId = 0;
 	}
 
 	public int getId() {
@@ -19,6 +32,5 @@ public class BaseClass {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
 }

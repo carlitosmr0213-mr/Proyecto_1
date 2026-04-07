@@ -1,33 +1,31 @@
 package co.edu.uptc.hospital.model;
-
+ 
 import java.util.Date;
-
+ 
 public class Hospital extends BaseClass {
-
-    private static int autoId = 0;
-
+ 
+    /* Sin autoId propio — BaseClass lo maneja */
     private String name;
     private String nit;
     private String address;
     private String phone;
-    private Date foundationDate;
+    private Date   foundationDate;
     private String gerenteName;
-
+ 
     public Hospital() {
         super();
     }
-
+ 
     public Hospital(String name, String nit, String address, String phone,
                     Date foundationDate, String gerenteName) {
-        super(++autoId);
-        this.name          = name;
-        this.nit           = nit;
-        this.address       = address;
-        this.phone         = phone;
+        super(true);
+        this.name           = name;
+        this.nit            = nit;
+        this.address        = address;
+        this.phone          = phone;
         this.foundationDate = foundationDate;
-        this.gerenteName   = gerenteName;
+        this.gerenteName    = gerenteName;
     }
-
 	public String getName() {
 		return name;
 	}

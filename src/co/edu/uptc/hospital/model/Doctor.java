@@ -1,65 +1,37 @@
 package co.edu.uptc.hospital.model;
- 
-public class Doctor extends BaseClass {
- 
-    private static int autoId = 0;
- 
-    private String firstName;
-    private String lastName;
-    private String idNumber;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Doctor extends Person {
+
+    /* Sin autoId propio — BaseClass lo maneja */
     private String specialty;
     private String medicalLicense;
     private int    yearsOfExperience;
- 
+
+    private List<Schedule>      schedules;      // Agregación  (d)
+    private List<MedicalRecord> medicalRecords; // Composición (e)
+
     public Doctor() {
         super();
+        this.schedules      = new ArrayList<>();
+        this.medicalRecords = new ArrayList<>();
     }
- 
+
     public Doctor(String firstName, String lastName, String idNumber,
-                  String specialty, String medicalLicense, int yearsOfExperience) {
-        super(++autoId);
-        this.firstName         = firstName;
-        this.lastName          = lastName;
-        this.idNumber          = idNumber;
-        this.specialty         = specialty;
-        this.medicalLicense    = medicalLicense;
-        this.yearsOfExperience = yearsOfExperience;
+            String email, String birthDate,
+            String specialty, String medicalLicense, int yearsOfExperience) {
+    	super(firstName, lastName, idNumber, email, birthDate);
+    	this.specialty         = specialty;
+    	this.medicalLicense    = medicalLicense;
+    	this.yearsOfExperience = yearsOfExperience;
+    	this.schedules         = new ArrayList<>();
+    	this.medicalRecords    = new ArrayList<>();
     }
- 
- 
-    public static int getAutoId() {
-		return autoId;
-	}
+    
 
-	public static void setAutoId(int autoId) {
-		Doctor.autoId = autoId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getIdNumber() {
-		return idNumber;
-	}
-
-	public void setIdNumber(String idNumber) {
-		this.idNumber = idNumber;
-	}
-
-	public String getSpecialty() {
+    public String getSpecialty() {
 		return specialty;
 	}
 
@@ -83,16 +55,34 @@ public class Doctor extends BaseClass {
 		this.yearsOfExperience = yearsOfExperience;
 	}
 
-	@Override
+	public List<Schedule> getSchedules(){
+		return schedules; 
+		}
+    public void addSchedule(Schedule s) { 
+    	this.schedules.add(s); 
+    	}
+
+    public List<MedicalRecord> getMedicalRecords() {
+    	return medicalRecords; 
+    	}
+    public void addMedicalRecord(MedicalRecord m) {
+    	this.medicalRecords.add(m); 
+    	}
+
+    @Override
     public String toString() {
         return "Doctor {"
-                + "\n  ID                  : " + id
+                + "\n  ID (sistema)        : " + id
                 + "\n  First Name          : " + firstName
                 + "\n  Last Name           : " + lastName
-                + "\n  ID Number           : " + idNumber
+                + "\n  Cedula              : " + idNumber
+                + "\n  Email               : " + email
+                + "\n  Birth Date          : " + birthDate
                 + "\n  Specialty           : " + specialty
                 + "\n  Medical License     : " + medicalLicense
                 + "\n  Years of Experience : " + yearsOfExperience
+                + "\n  Schedules           : " + schedules.size()
+                + "\n  Medical Records     : " + medicalRecords.size()
                 + "\n}";
     }
 }
